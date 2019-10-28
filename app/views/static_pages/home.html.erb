@@ -1,0 +1,24 @@
+<title>The gossip project</title>
+
+<center>
+  <div class="jumbotron">
+    <h1 class="display-4">Bienvenue !</h1>
+    <p class="lead">THE GOSSIP PROJECT</p>
+    <hr class="my-4">
+    <p>Nous sommes ici pour gossiper entre nous.</p>
+  </div>
+
+
+  <div class="card-columns">
+    <% Gossip.all.each do |gossip| %>
+     <div class="card border-secondary mb-6" style="max-width: 23rem;">
+      <div class="card-header">Gossip <%=gossip.id%></div>
+        <div class="card-block">
+          <p class="card-text">Auteur : <%= gossip.user.first_name %></p>
+          <p class="card-text">Titre : <%= gossip.title %></p>
+          <p class="card-text">Lien vers ce Gossip : <%= link_to gossip.title , gossip_path(:id => gossip.id) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</center>
